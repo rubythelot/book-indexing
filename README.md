@@ -1,20 +1,14 @@
 # vinyl-record-indexing
 
-Use computer vision to index your vinyl record collection.
-
-[Read about how this project works.](https://jamesg.blog/2024/03/16/vinyl-record-indexing/)
-
-## Demo
-
-https://github.com/capjamesg/vinyl-record-indexing/assets/37276661/327f42fa-bace-4f17-b9b1-7e60f5bea524
+Use computer vision to index your book collection.
 
 ## Getting Started
 
 First, clone this repository and install the required dependencies:
 
 ```
-git clone https://github.com/capjamesg/vinyl-record-indexing
-cd vinyl-record-indexing
+git clone https://github.com/rubythelot/book-indexing
+cd book-indexing
 ```
 
 Next, [follow the MobileCLIP installation instructions](https://github.com/apple/ml-mobileclip) to install MobileCLIP, on which this project depends.
