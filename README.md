@@ -1,40 +1,44 @@
-# vinyl-record-indexing
+# Reading List Catalog
 
-Use computer vision to index your book collection.
+A camera-assisted local site for cataloging your reading list.
 
-## Getting Started
+## Features
 
-First, clone this repository and install the required dependencies:
+- Add books with title, author, reading status, optional rating, and notes.
+- Use your webcam in the browser to capture a cover and auto-fill title/author.
+- Export all indexed books as CSV (`/books.csv`).
+- Track summary counts for books to read, currently reading, and finished.
+- Remove books you no longer want in your list.
+- Data is stored locally in `reading_list.db` (SQLite).
 
-```
-git clone https://github.com/rubythelot/book-indexing
-cd book-indexing
-```
+## Run locally
 
-Next, [follow the MobileCLIP installation instructions](https://github.com/apple/ml-mobileclip) to install MobileCLIP, on which this project depends.
+1. (Optional) Set your OpenAI key to enable cover auto-detection from camera captures:
 
-You will need an OpenAI API key to use this project. Register for an OpenAI API key, then export it into your environment using the following command:
-
-```
-export OPENAI_API_KEY=""
-```
-
-To start indexing your vinyl record collection, run the following command in the root project directory:
-
-```
-python3 app.py
+```bash
+export OPENAI_API_KEY="your_key_here"
 ```
 
-When you run this command, a window will appear showing the feed from your webcam. In the top left corner, the prompt most similar to the current frame, as well as a counter showing how many records have been identified in the video feed, will show.
+2. Start the app:
 
-To start indexing your collection, place a vinyl in front of your camera until the `Vinyls recorded` counter increments. Repeat this process for all vinyls you want to index.
+```bash
+python app.py
+```
 
-Then, open your palm (like you would if you were giving someone a high-five) and hold it until the camera stops. Opening your palm is a control sequence to indicate you have no more records to index.
+3. Open in your browser:
 
-Your camera will stop and all unique images will be sent to the OpenAI GPT-4 with Vision API for processing. The results, featuring the name of each vinyl record and the artist who wrote it, will be saved in a file called `results.csv`.
+```text
+http://127.0.0.1:5000
+```
+
+## Usage
+
+- Click **Start camera**, position a cover, and click **Scan cover**.
+- Confirm/edit title and author, then click **Save book**.
+- Click **Export CSV** to download your indexed books.
+
+No external Python dependencies are required (uses only Python standard library).
 
 ## License
 
-This project is licensed under an [MIT license](LICENSE).
-
-Refer to the [MobileCLIP license](https://github.com/apple/ml-mobileclip?tab=License-1-ov-file) for terms of use of MobileCLIP, on which this project depends. Of note, you can swap MobileCLIP for any CLIP-like model (i.e. the original CLIP model from OpenAI, which is licensed under an MIT license), although this will involve manually changing this script to work with your chosen model.
+This project is licensed under the [MIT license](LICENSE).
